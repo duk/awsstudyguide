@@ -60,3 +60,6 @@ A virtual private cloud (VPC) is a virtual network that closely resembles a trad
 For an overview of Amazon VPC, see What is Amazon VPC? in the Amazon VPC User Guide.
 
 The following diagram shows the architecture that you'll create as you complete the exercise in this guide. The security group that you set up and associate with the instance allows traffic only through specific ports, locking down communication with the instance according to the rules that you specify. Using an Elastic IP address (EIP) enables an instance in a VPC, which is otherwise private, to be reached from the Internet through an Internet gateway (for example, it could act as a web server).
+
+## Getting Started With Amazon VPC
+
