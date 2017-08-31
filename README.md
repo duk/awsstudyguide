@@ -1,2 +1,2 @@
-# awsstudyguide
-AWS Study Guide
+# AWS Documents on the Go
+
