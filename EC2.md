@@ -186,31 +186,39 @@ You can use the Amazon EC2 console or the command line interface to determine wh
 2. From the navigation bar, view the options in the region selector.
 3. View the Availability Zones on the dashboard under Service Health, Availability Zone Status.
 
+### To find your regions and Availability Zones using the command line
+
+1. Use the describe-regions command as follows to describe the regions for your account.
+
+`aws ec2 describe-regions`
+
+2. Use the describe-availability-zones command as follows to describe the Availability `Zones within the specified region.
+
+`aws ec2 describe-availability-zones --region region-name`
+
+## Specifying the Region for a Resource
 
 Every time you create an Amazon EC2 resource, you can specify the region for the resource. You can specify the region for a resource using the AWS Management Console or the command line.
 
 Note
+
 Some AWS resources might not be available in all regions and Availability Zones. Ensure that you can create the resources you need in the desired regions or Availability Zone before launching an instance in a specific Availability Zone.
-To specify the region for a resource using the console
 
-Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+### To specify the region for a resource using the console
 
-Use the region selector in the navigation bar.
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+2. Use the region selector in the navigation bar.
 
+### To specify the default region using the command line
 
-							Use the console region selector
-						
-To specify the default region using the command line
+You can set the value of an environment variable to the desired regional endpoint
 
-You can set the value of an environment variable to the desired regional endpoint (for example, https://ec2.us-east-2.amazonaws.com):
+- AWS_DEFAULT_REGION (AWS CLI)
+- Set-AWSDefaultRegion (AWS Tools for Windows PowerShell)
 
-AWS_DEFAULT_REGION (AWS CLI)
-Set-AWSDefaultRegion (AWS Tools for Windows PowerShell)
 Alternatively, you can use the --region (AWS CLI) or -Region (AWS Tools for Windows PowerShell) command line option with each individual command. For example, --region us-east-2.
 
-For more information about the endpoints for Amazon EC2, see Amazon Elastic Compute Cloud Endpoints.
-
-Launching Instances in an Availability Zone
+## Launching Instances in an Availability Zone
 
 When you launch an instance, select a region that puts your instances closer to specific customers, or meets the legal or other requirements you have. By launching your instances in separate Availability Zones, you can protect your applications from the failure of a single location.
 
@@ -218,33 +226,29 @@ When you launch an instance, you can optionally specify an Availability Zone in 
 
 To specify an Availability Zone for your instance using the console
 
-Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+2. On the dashboard, choose Launch Instance.
+3. Follow the directions for the wizard. On the Configure Instance Details page, do the following:
 
-On the dashboard, choose Launch Instance.
-
-Follow the directions for the wizard. On the Configure Instance Details page, do the following:
-
-[EC2-Classic] Select one of the Availability Zone options from the list, or select No Preference to enable us to select the best one for you.
-
-								Select an Availability Zone for your instance
+- [EC2-Classic] Select one of the Availability Zone options from the list, or select No Preference to enable us to select the best one for you.
 							
-[EC2-VPC] Select one of the subnet options from the list, or select No preference (default subnet in any Availability Zone) to enable us to select the best one for you.
-
-								Select a subnet for your instance
-							
-To specify an Availability Zone for your instance using the AWS CLI
+- [EC2-VPC] Select one of the subnet options from the list, or select No preference (default subnet in any Availability Zone) to enable us to select the best one for you.
+		
+### To specify an Availability Zone for your instance using the AWS CLI
 
 You can use the run-instances command with one of the following options:
 
-[EC2-Classic] --placement
-[EC2-VPC] --subnet-id
-To specify an Availability Zone for your instance using the AWS Tools for Windows PowerShell
+- [EC2-Classic] --placement
+- [EC2-VPC] --subnet-id
+
+### To specify an Availability Zone for your instance using the AWS Tools for Windows PowerShell
 
 You can use the New-EC2Instance command with one of the following options:
 
-[EC2-Classic] -AvailabilityZone
-[EC2-VPC] -SubnetId
-Migrating an Instance to Another Availability Zone
+- [EC2-Classic] -AvailabilityZone
+- [EC2-VPC] -SubnetId
+
+## Migrating an Instance to Another Availability Zone
 
 If you need to, you can migrate an instance from one Availability Zone to another. For example, if you are trying to modify the instance type of your instance and we can't launch an instance of the new instance type in the current Availability Zone, you could migrate the instance to an Availability Zone where we can launch an instance of that instance type.
 
@@ -252,163 +256,133 @@ The migration process involves creating an AMI from the original instance, launc
 
 To migrate an instance to another Availability Zone
 
-Create an AMI from the instance. The procedure depends on the operating system and the type of root device volume for the instance. For more information, see the documentation that corresponds to your operating system and root device volume:
+1. Create an AMI from the instance. The procedure depends on the operating system and the type of root device volume for the instance. For more information, see the documentation that corresponds to your operating system and root device volume:
 
-Creating an Amazon EBS-Backed Linux AMI
-Creating an Instance Store-Backed Linux AMI
-Creating an Amazon EBS-Backed Windows AMI
-Creating an Instance Store-Backed Windows AMI
-[EC2-VPC] If you need to preserve the private IPv4 address of the instance, you must delete the subnet in the current Availability Zone and then create a subnet in the new Availability Zone with the same IPv4 address range as the original subnet. Note that you must terminate all instances in a subnet before you can delete it. Therefore, you should create AMIs from all the instances in your subnet so that you can move all instances in the current subnet to the new subnet.
+- Creating an Amazon EBS-Backed Linux AMI
+- Creating an Instance Store-Backed Linux AMI
+- Creating an Amazon EBS-Backed Windows AMI
+- Creating an Instance Store-Backed Windows AMI
 
-Launch an instance from the AMI that you just created, specifying the new Availability Zone or subnet. You can use the same instance type as the original instance, or select a new instance type. For more information, see Launching Instances in an Availability Zone.
+2. [EC2-VPC] If you need to preserve the private IPv4 address of the instance, you must delete the subnet in the current Availability Zone and then create a subnet in the new Availability Zone with the same IPv4 address range as the original subnet. Note that you must terminate all instances in a subnet before you can delete it. Therefore, you should create AMIs from all the instances in your subnet so that you can move all instances in the current subnet to the new subnet.
 
-If the original instance has an associated Elastic IP address, associate it with the new instance. For more information, see Disassociating an Elastic IP Address and Reassociating it with a Different Instance.
+3. Launch an instance from the AMI that you just created, specifying the new Availability Zone or subnet. You can use the same instance type as the original instance, or select a new instance type. For more information, see Launching Instances in an Availability Zone.
 
-If the original instance is a Reserved Instance, change the Availability Zone for your reservation. (If you also changed the instance type, you can also change the instance type for your reservation.) For more information, see Submitting Modification Requests.
+4. If the original instance has an associated Elastic IP address, associate it with the new instance. For more information, see Disassociating an Elastic IP Address and Reassociating it with a Different Instance.
 
-(Optional) Terminate the original instance. For more information, see Terminating an Instance.
+5. If the original instance is a Reserved Instance, change the Availability Zone for your reservation. (If you also changed the instance type, you can also change the instance type for your reservation.) For more information, see Submitting Modification Requests.
 
-Amazon EC2 Root Device Volume
+6. (Optional) Terminate the original instance. For more information, see Terminating an Instance.
+
+# Amazon EC2 Root Device Volume
 
 When you launch an instance, the root device volume contains the image used to boot the instance. When we introduced Amazon EC2, all AMIs were backed by Amazon EC2 instance store, which means the root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3. After we introduced Amazon EBS, we introduced AMIs that are backed by Amazon EBS. This means that the root device for an instance launched from the AMI is an Amazon EBS volume created from an Amazon EBS snapshot.
 
 You can choose between AMIs backed by Amazon EC2 instance store and AMIs backed by Amazon EBS. We recommend that you use AMIs backed by Amazon EBS, because they launch faster and use persistent storage.
 
-For more information about the device names Amazon EC2 uses for your root volumes, see Device Naming on Linux Instances.
-
-Topics
-
-Root Device Storage Concepts
-Choosing an AMI by Root Device Type
-Determining the Root Device Type of Your Instance
-Changing the Root Device Volume to Persist
-Root Device Storage Concepts
+## Root Device Storage Concepts
 
 You can launch an instance from either an instance store-backed AMI or an Amazon EBS-backed AMI. The description of an AMI includes which type of AMI it is; you'll see the root device referred to in some places as either ebs (for Amazon EBS-backed) or instance store (for instance store-backed). This is important because there are significant differences between what you can do with each type of AMI. For more information about these differences, see Storage for the Root Device.
 
-Instance Store-backed Instances
+### Instance Store-backed Instances
 
 Instances that use instance stores for the root device automatically have one or more instance store volumes available, with one volume serving as the root device volume. When an instance is launched, the image that is used to boot the instance is copied to the root volume. Note that you can optionally use additional instance store volumes, depending on the instance type.
 
 Any data on the instance store volumes persists as long as the instance is running, but this data is deleted when the instance is terminated (instance store-backed instances do not support the Stop action) or if it fails (such as if an underlying drive has issues).
 
-
-     Root device on an Amazon EC2 instance store-backed instance
-    
 After an instance store-backed instance fails or terminates, it cannot be restored. If you plan to use Amazon EC2 instance store-backed instances, we highly recommend that you distribute the data on your instance stores across multiple Availability Zones. You should also back up critical data on your instance store volumes to persistent storage on a regular basis.
 
-For more information, see Amazon EC2 Instance Store.
-
-Amazon EBS-backed Instances
+### Amazon EBS-backed Instances
 
 Instances that use Amazon EBS for the root device automatically have an Amazon EBS volume attached. When you launch an Amazon EBS-backed instance, we create an Amazon EBS volume for each Amazon EBS snapshot referenced by the AMI you use. You can optionally use other Amazon EBS volumes or instance store volumes, depending on the instance type.
 
-
-     Root device volume and other Amazon EBS volumes of an Amazon EBS-backed instance
-    
 An Amazon EBS-backed instance can be stopped and later restarted without affecting data stored in the attached volumes. There are various instance– and volume-related tasks you can do when an Amazon EBS-backed instance is in a stopped state. For example, you can modify the properties of the instance, you can change the size of your instance or update the kernel it is using, or you can attach your root volume to a different running instance for debugging or any other purpose.
 
 If an Amazon EBS-backed instance fails, you can restore your session by following one of these methods:
 
-Stop and then start again (try this method first).
-Automatically snapshot all relevant volumes and create a new AMI. For more information, see Creating an Amazon EBS-Backed Linux AMI.
-Attach the volume to the new instance by following these steps:
-Create a snapshot of the root volume.
-Register a new AMI using the snapshot.
-Launch a new instance from the new AMI.
-Detach the remaining Amazon EBS volumes from the old instance.
-Reattach the Amazon EBS volumes to the new instance.
-For more information, see Amazon EBS Volumes.
+- Stop and then start again (try this method first).
+- Automatically snapshot all relevant volumes and create a new AMI. For more information, see Creating an Amazon EBS-Backed Linux AMI.
+- Attach the volume to the new instance by following these steps:
+  1. Create a snapshot of the root volume.
+  2. Register a new AMI using the snapshot.
+  3. Launch a new instance from the new AMI.
+  4. Detach the remaining Amazon EBS volumes from the old instance.
+  5. Reattach the Amazon EBS volumes to the new instance.
 
-Choosing an AMI by Root Device Type
+## Choosing an AMI by Root Device Type
 
 The AMI that you specify when you launch your instance determines the type of root device volume that your instance has.
 
 To choose an Amazon EBS-backed AMI using the console
 
-Open the Amazon EC2 console.
+1. Open the Amazon EC2 console.
+2. In the navigation pane, choose AMIs.
+3. From the filter lists, select the image type (such as Public images). In the search bar choose Platform to select the operating system (such as Amazon Linux), and Root Device Type to select EBS images.
+4. (Optional) To get additional information to help you make your choice, choose the Show/Hide Columns icon, update the columns to display, and choose Close.
+5. Choose an AMI and write down its AMI ID.
 
-In the navigation pane, choose AMIs.
+### To choose an instance store-backed AMI using the console
 
-From the filter lists, select the image type (such as Public images). In the search bar choose Platform to select the operating system (such as Amazon Linux), and Root Device Type to select EBS images.
+1. Open the Amazon EC2 console.
+2. In the navigation pane, choose AMIs.
+3. From the filter lists, select the image type (such as Public images). In the search bar, choose Platform to select the operating system (such as Amazon Linux), and Root Device Type to select Instance store.
+4. (Optional) To get additional information to help you make your choice, choose the Show/Hide Columns icon, update the columns to display, and choose Close.
+5. Choose an AMI and write down its AMI ID.
 
-(Optional) To get additional information to help you make your choice, choose the Show/Hide Columns icon, update the columns to display, and choose Close.
-
-Choose an AMI and write down its AMI ID.
-
-To choose an instance store-backed AMI using the console
-
-Open the Amazon EC2 console.
-
-In the navigation pane, choose AMIs.
-
-From the filter lists, select the image type (such as Public images). In the search bar, choose Platform to select the operating system (such as Amazon Linux), and Root Device Type to select Instance store.
-
-(Optional) To get additional information to help you make your choice, choose the Show/Hide Columns icon, update the columns to display, and choose Close.
-
-Choose an AMI and write down its AMI ID.
-
-To verify the type of the root device volume of an AMI using the command line
+### To verify the type of the root device volume of an AMI using the command line
 
 You can use one of the following commands. For more information about these command line interfaces, see Accessing Amazon EC2.
 
-describe-images (AWS CLI)
-Get-EC2Image (AWS Tools for Windows PowerShell)
-Determining the Root Device Type of Your Instance
+- describe-images (AWS CLI)
+- Get-EC2Image (AWS Tools for Windows PowerShell)
+
+## Determining the Root Device Type of Your Instance
 
 To determine the root device type of an instance using the console
 
-Open the Amazon EC2 console.
+1. Open the Amazon EC2 console.
+2. In the navigation pane, choose Instances, and select the instance.
+3. Check the value of Root device type in the Description tab as follows:
 
-In the navigation pane, choose Instances, and select the instance.
-
-Check the value of Root device type in the Description tab as follows:
-
-If the value is ebs, this is an Amazon EBS-backed instance.
-If the value is instance store, this is an instance store-backed instance.
-To determine the root device type of an instance using the command line
+  - If the value is ebs, this is an Amazon EBS-backed instance.
+  - If the value is instance store, this is an instance store-backed instance.
+  
+### To determine the root device type of an instance using the command line
 
 You can use one of the following commands. For more information about these command line interfaces, see Accessing Amazon EC2.
 
-describe-instances (AWS CLI)
-Get-EC2Instance (AWS Tools for Windows PowerShell)
-Changing the Root Device Volume to Persist
+  - describe-instances (AWS CLI)
+  - Get-EC2Instance (AWS Tools for Windows PowerShell)
+
+## Changing the Root Device Volume to Persist
 
 By default, the root device volume for an AMI backed by Amazon EBS is deleted when the instance terminates. To change the default behavior, set the DeleteOnTermination attribute to false using a block device mapping.
 
-Changing the Root Volume to Persist Using the Console
+### Changing the Root Volume to Persist Using the Console
 
 Using the console, you can change the DeleteOnTermination attribute when you launch an instance. To change this attribute for a running instance, you must use the command line.
 
-To change the root device volume of an instance to persist at launch using the console
-
-Open the Amazon EC2 console.
-
-From the Amazon EC2 console dashboard, choose Launch Instance.
-
-On the Choose an Amazon Machine Image (AMI) page, select the AMI to use and choose Select.
-
-Follow the wizard to complete the Choose an Instance Type and Configure Instance Details pages.
-
-On the Add Storage page, deselect Delete On Termination for the root volume.
-
-Complete the remaining wizard pages, and then choose Launch.
+#### To change the root device volume of an instance to persist at launch using the console
+1. Open the Amazon EC2 console.
+2. From the Amazon EC2 console dashboard, choose Launch Instance.
+3. On the Choose an Amazon Machine Image (AMI) page, select the AMI to use and choose Select.
+4. Follow the wizard to complete the Choose an Instance Type and Configure Instance Details pages.
+5. On the Add Storage page, deselect Delete On Termination for the root volume.
+6. Complete the remaining wizard pages, and then choose Launch.
 
 You can verify the setting by viewing details for the root device volume on the instance's details pane. Next to Block devices, choose the entry for the root device volume. By default, Delete on termination is True. If you change the default behavior, Delete on termination is False.
 
-Changing the Root Volume of an Instance to Persist Using the AWS CLI
+### Changing the Root Volume of an Instance to Persist Using the AWS CLI
 
 Using the AWS CLI, you can change the DeleteOnTermination attribute when you launch an instance or while the instance is running.
 
-Example at Launch
+#### Example at Launch
 
 Use the run-instances command to preserve the root volume by including a block device mapping that sets its DeleteOnTermination attribute for to false.
 
-Copy
-aws ec2 run-instances --block-device-mappings file://mapping.json other parameters...
-Specify the following in mapping.json.
+`aws ec2 run-instances --block-device-mappings file://mapping.json other parameters...
+Specify the following in mapping.json.`
 
-Copy
+```json
 [
   {
     "DeviceName": "/dev/sda1",
@@ -417,9 +391,10 @@ Copy
     }
   }
 ]
+```
 You can confirm that DeleteOnTermination is false by using the describe-instances command and looking for the BlockDeviceMappings entry for the device in the command output, as shown here.
 
-...
+```json
   "BlockDeviceMappings": [
     {
         "DeviceName": "/dev/sda1",
@@ -430,16 +405,18 @@ You can confirm that DeleteOnTermination is false by using the describe-instance
             "AttachTime": "2013-07-19T02:42:39.000Z"
         }
     }              
-...
-Example While the Instance is Running
+```
+
+#### Example While the Instance is Running
 
 Use the modify-instance-attribute command to preserve the root volume by including a block device mapping that sets its DeleteOnTermination attribute to false.
 
-Copy
-aws ec2 modify-instance-attribute --instance-id i-1234567890abcdef0 --block-device-mappings file://mapping.json
+
+`aws ec2 modify-instance-attribute --instance-id i-1234567890abcdef0 --block-device-mappings file://mapping.json`
+
 Specify the following in mapping.json.
 
-Copy
+```json
 [
   {
     "DeviceName": "/dev/sda1",
@@ -448,6 +425,7 @@ Copy
     }
   }
 ]
+```
 
 Setting Up with Amazon EC2
 
