@@ -2,156 +2,110 @@
 
 Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage. Amazon EC2 enables you to scale up or down to handle changes in requirements or spikes in popularity, reducing your need to forecast traffic.
 
-For more information about cloud computing, see What is Cloud Computing?
-
-Features of Amazon EC2
+## Features of Amazon EC2
 
 Amazon EC2 provides the following features:
 
-Virtual computing environments, known as instances
-Preconfigured templates for your instances, known as Amazon Machine Images (AMIs), that package the bits you need for your server (including the operating system and additional software)
-Various configurations of CPU, memory, storage, and networking capacity for your instances, known as instance types
-Secure login information for your instances using key pairs (AWS stores the public key, and you store the private key in a secure place)
-Storage volumes for temporary data that's deleted when you stop or terminate your instance, known as instance store volumes
-Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS), known as Amazon EBS volumes
-Multiple physical locations for your resources, such as instances and Amazon EBS volumes, known as regions and Availability Zones
-A firewall that enables you to specify the protocols, ports, and source IP ranges that can reach your instances using security groups
-Static IPv4 addresses for dynamic cloud computing, known as Elastic IP addresses
-Metadata, known as tags, that you can create and assign to your Amazon EC2 resources
-Virtual networks you can create that are logically isolated from the rest of the AWS cloud, and that you can optionally connect to your own network, known as virtual private clouds (VPCs)
-For more information about the features of Amazon EC2, see the Amazon EC2 product page.
+- Virtual computing environments, known as instances
+- Preconfigured templates for your instances, known as Amazon Machine Images (AMIs), that package the bits you need for your server (including the operating system and additional software)
+- Various configurations of CPU, memory, storage, and networking capacity for your instances, known as instance types
+- Secure login information for your instances using key pairs (AWS stores the public key, and you store the private key in a secure place)
+- Storage volumes for temporary data that's deleted when you stop or terminate your instance, known as instance store volumes
+- Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS), known as Amazon EBS volumes
+- Multiple physical locations for your resources, such as instances and Amazon EBS volumes, known as regions and Availability Zones
+- A firewall that enables you to specify the protocols, ports, and source IP ranges that can reach your instances using security groups
+- Static IPv4 addresses for dynamic cloud computing, known as Elastic IP addresses
+- Metadata, known as tags, that you can create and assign to your Amazon EC2 resources
+- Virtual networks you can create that are logically isolated from the rest of the AWS cloud, and that you can optionally connect to your own network, known as virtual private clouds (VPCs)
 
-For more information about running your website on AWS, see Websites & Website Hosting.
+## How to Get Started with Amazon EC2
 
-How to Get Started with Amazon EC2
+The first thing you need to do is get set up to use Amazon EC2. After you are set up, you are ready to complete the Getting Started tutorial for Amazon EC2. 
 
-The first thing you need to do is get set up to use Amazon EC2. After you are set up, you are ready to complete the Getting Started tutorial for Amazon EC2. Whenever you need more information about a feature of Amazon EC2, you can read the technical documentation.
+## Related Services
 
-Get Up and Running
+You can provision Amazon EC2 resources, such as instances and volumes, directly using Amazon EC2. You can also provision Amazon EC2 resources using other services in AWS. 
 
-Setting Up with Amazon EC2
-Getting Started with Amazon EC2 Linux Instances
-Basics
+To automatically distribute incoming application traffic across multiple instances, use Elastic Load Balancing.
 
-Instances and AMIs
-Regions and Availability Zones
-Instance Types
-Tags
-Networking and Security
+To monitor basic statistics for your instances and Amazon EBS volumes, use Amazon CloudWatch.
 
-Amazon EC2 Key Pairs
-Security Groups
-Elastic IP Addresses
-Amazon EC2 and Amazon VPC
-Storage
+To automate actions, such as activating a Lambda function whenever a new Amazon EC2 instance starts, or invoking SSM Run Command whenever an event in another AWS service happens, use Amazon CloudWatch Events. 
 
-Amazon EBS
-Instance Store
-Working with Linux Instances
+To monitor the calls made to the Amazon EC2 API for your account, including calls made by the AWS Management Console, command line tools, and other services, use AWS CloudTrail.
 
-Remote Management (Run Command)
-Tutorial: Installing a LAMP Web Server on Amazon Linux
-Tutorial: Configure Apache Web Server on Amazon Linux to Use SSL/TLS
-Getting Started with AWS: Hosting a Web App for Linux
-If you have questions about whether AWS is right for you, contact AWS Sales. If you have technical questions about Amazon EC2, use the Amazon EC2 forum.
+To get a managed relational database in the cloud, use Amazon Relational Database Service (Amazon RDS) to launch a database instance. Although you can set up a database on an EC2 instance, Amazon RDS offers the advantage of handling your database management tasks, such as patching the software, backing up, and storing the backups.
 
-Related Services
+To import virtual machine (VM) images from your local environment into AWS and convert them into ready-to-use AMIs or instances, use VM Import/Export.
 
-You can provision Amazon EC2 resources, such as instances and volumes, directly using Amazon EC2. You can also provision Amazon EC2 resources using other services in AWS. For more information, see the following documentation:
-
-Auto Scaling User Guide
-AWS CloudFormation User Guide
-AWS Elastic Beanstalk Developer Guide
-AWS OpsWorks User Guide
-To automatically distribute incoming application traffic across multiple instances, use Elastic Load Balancing. For more information, see Elastic Load Balancing User Guide.
-
-To monitor basic statistics for your instances and Amazon EBS volumes, use Amazon CloudWatch. For more information, see the Amazon CloudWatch User Guide.
-
-To automate actions, such as activating a Lambda function whenever a new Amazon EC2 instance starts, or invoking SSM Run Command whenever an event in another AWS service happens, use Amazon CloudWatch Events. For more information, see the Amazon CloudWatch Events User Guide.
-
-To monitor the calls made to the Amazon EC2 API for your account, including calls made by the AWS Management Console, command line tools, and other services, use AWS CloudTrail. For more information, see the AWS CloudTrail User Guide.
-
-To get a managed relational database in the cloud, use Amazon Relational Database Service (Amazon RDS) to launch a database instance. Although you can set up a database on an EC2 instance, Amazon RDS offers the advantage of handling your database management tasks, such as patching the software, backing up, and storing the backups. For more information, see Amazon Relational Database Service Developer Guide.
-
-To import virtual machine (VM) images from your local environment into AWS and convert them into ready-to-use AMIs or instances, use VM Import/Export. For more information, see the VM Import/Export User Guide.
-
-Accessing Amazon EC2
+## Accessing Amazon EC2
 
 Amazon EC2 provides a web-based user interface, the Amazon EC2 console. If you've signed up for an AWS account, you can access the Amazon EC2 console by signing into the AWS Management Console and selecting EC2 from the console home page.
 
 If you prefer to use a command line interface, you have the following options:
 
-AWS Command Line Interface (CLI)
-Provides commands for a broad set of AWS products, and is supported on Windows, Mac, and Linux. To get started, see AWS Command Line Interface User Guide. For more information about the commands for Amazon EC2, see ec2 in the AWS Command Line Interface Reference.
+### AWS Command Line Interface (CLI)
+Provides commands for a broad set of AWS products, and is supported on Windows, Mac, and Linux. To get started, see AWS Command Line Interface User Guide.
 
-AWS Tools for Windows PowerShell
-Provides commands for a broad set of AWS products for those who script in the PowerShell environment. To get started, see the AWS Tools for Windows PowerShell User Guide. For more information about the cmdlets for Amazon EC2, see the AWS Tools for Windows PowerShell Reference.
+### AWS Tools for Windows PowerShell
+Provides commands for a broad set of AWS products for those who script in the PowerShell environment.
 
-Amazon EC2 provides a Query API. These requests are HTTP or HTTPS requests that use the HTTP verbs GET or POST and a Query parameter named Action. For more information about the API actions for Amazon EC2, see Actions in the Amazon EC2 API Reference.
+Amazon EC2 provides a Query API. These requests are HTTP or HTTPS requests that use the HTTP verbs GET or POST and a Query parameter named Action.
 
-If you prefer to build applications using language-specific APIs instead of submitting a request over HTTP or HTTPS, AWS provides libraries, sample code, tutorials, and other resources for software developers. These libraries provide basic functions that automate tasks such as cryptographically signing your requests, retrying requests, and handling error responses, making it is easier for you to get started. For more information, see AWS SDKs and Tools.
+If you prefer to build applications using language-specific APIs instead of submitting a request over HTTP or HTTPS, AWS provides libraries, sample code, tutorials, and other resources for software developers. These libraries provide basic functions that automate tasks such as cryptographically signing your requests, retrying requests, and handling error responses, making it is easier for you to get started.
 
-Pricing for Amazon EC2
+## Pricing for Amazon EC2
 
 When you sign up for AWS, you can get started with Amazon EC2 for free using the AWS Free Tier.
 
 Amazon EC2 provides the following purchasing options for instances:
 
 On-Demand instances
+
 Pay for the instances that you use by the hour, with no long-term commitments or up-front payments.
 
 Reserved Instances
+
 Make a low, one-time, up-front payment for an instance, reserve it for a one- or three-year term, and pay a significantly lower hourly rate for these instances.
 
 Spot instances
+
 Specify the maximum hourly price that you are willing to pay to run a particular instance type. The Spot price fluctuates based on supply and demand, but you never pay more than the maximum price you specified. If the Spot price moves higher than your maximum price, Amazon EC2 shuts down your Spot instances.
 
-For a complete list of charges and specific prices for Amazon EC2, see Amazon EC2 Pricing.
-
-To calculate the cost of a sample provisioned environment, see AWS Economics Center.
-
-To see your bill, go to your AWS Account Activity page. Your bill contains links to usage reports that provide details about your bill. To learn more about AWS account billing, see AWS Account Billing.
-
-If you have questions concerning AWS billing, accounts, and events, contact AWS Support.
-
-For an overview of Trusted Advisor, a service that helps you optimize the costs, security, and performance of your AWS environment, see AWS Trusted Advisor.
-
-PCI DSS Compliance
+## PCI DSS Compliance
 
 Amazon EC2 supports the processing, storage, and transmission of credit card data by a merchant or service provider, and has been validated as being compliant with Payment Card Industry (PCI) Data Security Standard (DSS). For more information about PCI DSS, including how to request a copy of the AWS PCI Compliance Package, see PCI DSS Level 1.
 
-Instances and AMIs
+# Instances and AMIs
 
-An Amazon Machine Image (AMI) is a template that contains a software configuration (for example, an operating system, an application server, and applications). From an AMI, you launch an instance, which is a copy of the AMI running as a virtual server in the cloud. You can launch multiple instances of an AMI, as shown in the following figure.
-
-
-					Launch multiple instances from an AMI
-				
+An Amazon Machine Image is a template that contains a software configuration (for example, an operating system, an application server, and applications). From an AMI, you launch an instance, which is a copy of the AMI running as a virtual server in the cloud. You can launch multiple instances of an AMI, as shown in the following figure.
+			
 Your instances keep running until you stop or terminate them, or until they fail. If an instance fails, you can launch a new one from the AMI.
 
-Instances
+## Instances
 
 You can launch different types of instances from a single AMI. An instance type essentially determines the hardware of the host computer used for your instance. Each instance type offers different compute and memory capabilities. Select an instance type based on the amount of memory and computing power that you need for the application or software	that you plan to run on the instance. For more information about the hardware specifications for each Amazon EC2 instance type, see Amazon EC2 Instances.
 
 After you launch an instance, it looks like a traditional host, and you can interact with it as you would any computer. You have complete control of your instances; you can use sudo to run commands that require root privileges.
 
-Your AWS account has a limit on the number of instances that you can have running. For more information about this limit, and how to request an increase, see How many instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
+Your AWS account has a limit on the number of instances that you can have running.
 
-Storage for Your Instance
+### Storage for Your Instance
 
-The root device for your instance contains the image used to boot the instance. For more information, see Amazon EC2 Root Device Volume.
+The root device for your instance contains the image used to boot the instance.
 
-Your instance may include local storage volumes, known as instance store volumes, which you can configure at launch time with block device mapping. For more information, see Block Device Mapping. After these volumes have been added to and mapped on your instance, they are available for you to mount and use. If your instance fails, or if your instance is stopped or terminated, the data on these volumes is lost; therefore, these volumes are best used for temporary data. For important data, you should use a replication strategy across multiple instances in order to keep your data safe, or store your persistent data in Amazon S3 or Amazon EBS volumes. For more information, see Storage.
+Your instance may include local storage volumes, known as instance store volumes, which you can configure at launch time with block device mapping. After these volumes have been added to and mapped on your instance, they are available for you to mount and use. If your instance fails, or if your instance is stopped or terminated, the data on these volumes is lost; therefore, these volumes are best used for temporary data. For important data, you should use a replication strategy across multiple instances in order to keep your data safe, or store your persistent data in Amazon S3 or Amazon EBS volumes.
 
-Security Best Practices
+### Security Best Practices
 
-Use AWS Identity and Access Management (IAM) to control access to your AWS resources, including your instances. You can create IAM users and groups under your AWS account, assign security credentials to each, and control the access that each has to resources and services in AWS. For more information, see Controlling Access to Amazon EC2 Resources.
-Restrict access by only allowing trusted hosts or networks to access ports on your instance. For example, you can restrict SSH access by restricting incoming traffic on port 22. For more information, see Amazon EC2 Security Groups for Linux Instances.
-Review the rules in your security groups regularly, and ensure that you apply the principle of least privilege—only open up permissions that you require. You can also create different security groups to deal with instances that have different security requirements. Consider creating a bastion security group that allows external logins, and keep the remainder of your instances in a group that does not allow external logins.
-Disable password-based logins for instances launched from your AMI. Passwords can be found or cracked, and are a security risk. For more information, see Disable Password-Based Remote Logins for Root. For more information about sharing AMIs safely, see Shared AMIs.
-Stopping, Starting, and Terminating Instances
+- Use AWS Identity and Access Management to control access to your AWS resources, including your instances. You can create IAM users and groups under your AWS account, assign security credentials to each, and control the access that each has to resources and services in AWS. For more information, see Controlling Access to Amazon EC2 Resources.
+- Restrict access by only allowing trusted hosts or networks to access ports on your instance. For example, you can restrict SSH access by restricting incoming traffic on port 22.
+- Review the rules in your security groups regularly, and ensure that you apply the principle of least privilege—only open up permissions that you require. You can also create different security groups to deal with instances that have different security requirements. Consider creating a bastion security group that allows external logins, and keep the remainder of your instances in a group that does not allow external logins.
+- Disable password-based logins for instances launched from your AMI. Passwords can be found or cracked, and are a security risk.
 
-Stopping an instance
+### Stopping, Starting, and Terminating Instances
+
+#### Stopping an instance
 
 When an instance is stopped, the instance performs a normal shutdown, and then transitions to a stopped state. All of its Amazon EBS volumes remain attached, and you can start the instance again at a later time.
 
@@ -159,57 +113,43 @@ You are not charged for additional instance hours while the instance is in a sto
 
 When an instance is in a stopped state, you can attach or detach Amazon EBS volumes. You can also create an AMI from the instance, and you can change the kernel, RAM disk, and instance type.
 
-Terminating an instance
+#### Terminating an instance
 
 When an instance is terminated, the instance performs a normal shutdown, then the attached Amazon EBS volumes are deleted unless the volume's deleteOnTermination attribute is set to false. The instance itself is also deleted, and you can't start the instance again at a later time.
 
 To prevent accidental termination, you can disable instance termination. If you do so, ensure that the disableApiTermination attribute is set to true for the instance. To control the behavior of an instance shutdown, such as shutdown -h in Linux or shutdown in Windows, set the instanceInitiatedShutdownBehavior instance attribute to stop or terminate as desired. Instances with Amazon EBS volumes for the root device default to stop, and instances with instance-store root devices are always terminated as the result of an instance shutdown.
 
-For more information, see Instance Lifecycle.
-
-AMIs
+### AMIs
 
 Amazon Web Services (AWS) publishes many Amazon Machine Images (AMIs) that contain common software configurations for public use. In addition, members of the AWS developer community have published their own custom AMIs. You can also create your own custom AMI or AMIs; doing so enables you to quickly and easily start new instances that have everything you need. For example, if your application is a website or a web service, your AMI could include a web server, the associated static content, and the code for the dynamic pages. As a result, after you launch an instance from this AMI, your web server starts, and your application is ready to accept requests.
 
 All AMIs are categorized as either backed by Amazon EBS, which means that the root device for an instance launched from the AMI is an Amazon EBS volume, or backed by instance store, which means that the root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3.
 
-The description of an AMI indicates the type of root device (either ebs or instance store). This is important because there are significant differences in what you can do with each type of AMI. For more information about these differences, see Storage for the Root Device.
+The description of an AMI indicates the type of root device (either ebs or instance store). This is important because there are significant differences in what you can do with each type of AMI.
 
-Regions and Availability Zones
+# Regions and Availability Zones
 
 Amazon EC2 is hosted in multiple locations world-wide. These locations are composed of regions and Availability Zones. Each region is a separate geographic area. Each region has multiple, isolated locations known as Availability Zones. Amazon EC2 provides you the ability to place resources, such as instances, and data in multiple locations. Resources aren't replicated across regions unless you do so specifically.
 
 Amazon operates state-of-the-art, highly-available data centers. Although rare, failures can occur that affect the availability of instances that are in the same location. If you host all your instances in a single location that is affected by such a failure, none of your instances would be available.
 
-Contents
-
-Region and Availability Zone Concepts
-Available Regions
-Regions and Endpoints
-Describing Your Regions and Availability Zones
-Specifying the Region for a Resource
-Launching Instances in an Availability Zone
-Migrating an Instance to Another Availability Zone
-Region and Availability Zone Concepts
+## Region and Availability Zone Concepts
 
 Each region is completely independent. Each Availability Zone is isolated, but the Availability Zones in a region are connected through low-latency links. The following diagram illustrates the relationship between regions and Availability Zones.
 
+Amazon EC2 resources are either global, tied to a region, or tied to an Availability Zone.
 
-					Regions and Availability Zones
-				
-Amazon EC2 resources are either global, tied to a region, or tied to an Availability Zone. For more information, see Resource Locations.
-
-Regions
+### Regions
 
 Each Amazon EC2 region is designed to be completely isolated from the other Amazon EC2 regions. This achieves the greatest possible fault tolerance and stability.
 
 When you view your resources, you'll only see the resources tied to the region you've specified. This is because regions are isolated from each other, and we don't replicate resources across regions automatically.
 
-When you launch an instance, you must select an AMI that's in the same region. If the AMI is in another region, you can copy the AMI to the region you're using. For more information, see Copying an AMI.
+When you launch an instance, you must select an AMI that's in the same region. If the AMI is in another region, you can copy the AMI to the region you're using.
 
-Note that there is a charge for data transfer between regions. For more information, see Amazon EC2 Pricing - Data Transfer.
+Note that there is a charge for data transfer between regions.
 
-Availability Zones
+### Availability Zones
 
 When you launch an instance, you can select an Availability Zone or let us choose one for you. If you distribute your instances across multiple Availability Zones and one instance fails, you can design your application so that an instance in another Availability Zone can handle requests.
 
@@ -221,7 +161,7 @@ As Availability Zones grow over time, our ability to expand them can become cons
 
 You can list the Availability Zones that are available to your account. For more information, see Describing Your Regions and Availability Zones.
 
-Available Regions
+## Available Regions
 
 Your account determines the regions that are available to you. For example:
 
@@ -230,79 +170,22 @@ An AWS GovCloud (US) account provides access to the AWS GovCloud (US) region onl
 An Amazon AWS (China) account provides access to the China (Beijing) region only.
 The following table lists the regions provided by an AWS account. You can't describe or access additional regions from an AWS account, such as AWS GovCloud (US) or China (Beijing).
 
-Code	Name
-us-east-1
-US East (N. Virginia)
-us-east-2
-US East (Ohio)
-us-west-1
-US West (N. California)
-us-west-2
-US West (Oregon)
-ca-central-1
-Canada (Central)
-eu-west-1
-EU (Ireland)
-eu-central-1
-EU (Frankfurt)
-eu-west-2
-EU (London)
-ap-northeast-1
-Asia Pacific (Tokyo)
-ap-northeast-2
-Asia Pacific (Seoul)
-ap-southeast-1
-Asia Pacific (Singapore)
-ap-southeast-2
-Asia Pacific (Sydney)
-ap-south-1
-Asia Pacific (Mumbai)
-sa-east-1
-South America (São Paulo)
-For more information, see AWS Global Infrastructure.
+The number and mapping of Availability Zones per region may vary between AWS accounts. To get a list of the Availability Zones that are available to your account, you can use the Amazon EC2 console or the command line interface.
 
-The number and mapping of Availability Zones per region may vary between AWS accounts. To get a list of the Availability Zones that are available to your account, you can use the Amazon EC2 console or the command line interface. For more information, see Describing Your Regions and Availability Zones.
+## Regions and Endpoints
 
-Regions and Endpoints
-
-When you work with an instance using the command line interface or API actions, you must specify its regional endpoint. For more information about the regions and endpoints for Amazon EC2, see Regions and Endpoints in the Amazon Web Services General Reference.
-
-For more information about endpoints and protocols in AWS GovCloud (US), see AWS GovCloud (US) Endpoints in the AWS GovCloud (US) User Guide.
+When you work with an instance using the command line interface or API actions, you must specify its regional endpoint.
 
 Describing Your Regions and Availability Zones
 
 You can use the Amazon EC2 console or the command line interface to determine which regions and Availability Zones are available for your account. For more information about these command line interfaces, see Accessing Amazon EC2.
 
-To find your regions and Availability Zones using the console
+### To find your regions and Availability Zones using the console
 
-Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+2. From the navigation bar, view the options in the region selector.
+3. View the Availability Zones on the dashboard under Service Health, Availability Zone Status.
 
-From the navigation bar, view the options in the region selector.
-
-
-						View your regions
-					
-View the Availability Zones on the dashboard under Service Health, Availability Zone Status.
-
-To find your regions and Availability Zones using the command line
-
-[AWS CLI] Use the describe-regions command as follows to describe the regions for your account.
-
-Copy
-aws ec2 describe-regions
-[AWS CLI] Use the describe-availability-zones command as follows to describe the Availability Zones within the specified region.
-
-Copy
-aws ec2 describe-availability-zones --region region-name
-[AWS Tools for Windows PowerShell] Use the Get-EC2Region command as follows to describe the regions for your account.
-
-Copy
-PS C:\> Get-EC2Region
-[AWS Tools for Windows PowerShell] Use the Get-EC2AvailabilityZone command as follows to describe the Availability Zones within the specified region.
-
-Copy
-PS C:\> Get-EC2AvailabilityZone -Region region-name
-Specifying the Region for a Resource
 
 Every time you create an Amazon EC2 resource, you can specify the region for the resource. You can specify the region for a resource using the AWS Management Console or the command line.
 
